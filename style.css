@@ -1,24 +1,128 @@
+/* Basic Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Body Styling */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
+  padding: 20px;
+  color: #333;
+}
+
+/* Header Styling */
+#header {
+  background-color: #333;
+  color: white;
+  text-align: center;
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+#header h1 {
+  font-size: 2rem;
+}
+
+/* Pop-up Styling */
+.popUp {
+  display: none; /* Hidden by default */
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+  justify-content: center;
+  align-items: center;
+}
+
+.popUpContainer {
+  background-color: white;
+  padding: 20px;
+  width: 400px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Select Dropdown */
+#categoriesSelector {
+  padding: 10px;
+  margin-bottom: 20px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+/* Table Styling */
 table {
-    margin: auto;
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+}
+
+th, td {
+  padding: 12px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+  word-wrap: break-word; /* Ensures text wraps when necessary */
+  overflow: hidden; /* Hides overflow text */
+  text-overflow: ellipsis; /* Adds "..." for overflow text */
+  white-space: nowrap; /* Prevents text from wrapping to the next line */
+}
+
+th {
+  background-color: #f4f4f4;
+}
+a{
+  padding: 10px 15px;
+  margin: 5px;
+  text-decoration: none;
+  background-color: white;
+  border: 1px solid #4CAF50;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+  color: #4CAF50;
+}
+a:hover{
+  background-color: #45a049;
+  color: white;
+}
+
+/* Button Styling */
+button {
+  padding: 10px 15px;
+  margin: 5px;
+  border: none;
+  background-color: #4CAF50;
+  color: white;
+  cursor: pointer;
+  border-radius: 4px;
+  font-size: 1rem;
+}
+
+button:hover {
+  background-color: #45a049;
+}
+
+button:disabled {
+  background-color: #ddd;
+  cursor: not-allowed;
+}
+
+/* Responsive Styling */
+@media (max-width: 768px) {
+  #header h1 {
+      font-size: 1.5rem;
   }
-  table,
-  th,
-  td {
-    border: 1px solid black;
-    border-collapse: collapse;
+
+  table {
+      font-size: 0.9rem;
   }
-  th,
-  td {
-    padding: 10px;
+
+  button {
+      font-size: 0.9rem;
   }
-  .search{
-    text-align: center;
-    margin-bottom: 10px;
-  }
-  #searchInput{
-    padding: 10px;
-  }
-  .selectPagination{
-    margin-top: 10px;
-    text-align: center;
-  }
+}

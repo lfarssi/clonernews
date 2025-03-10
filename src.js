@@ -86,19 +86,6 @@ function addCommentLinkListeners() {
     });
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
 document.getElementById("prev").addEventListener("click", () => {
     if (start > 0) {
         start -= 10;
