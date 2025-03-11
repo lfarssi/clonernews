@@ -73,17 +73,19 @@ async function fetchComments(itemId) {
   container.innerHTML = "";
   container.appendChild(createItemElement(item));
 
-  if (item.kids && item.kids.length > 0) {
+  if (item.kids && item.kids.length > 0 ) {
     for (const commentId of item.kids) {
       const comment = await fetchJSON(`${API_BASE}item/${commentId}${API_SUFFIX}`);
-      if (comment) {
+      console.log(comment);
+      
+      if (comment && !comment.dead  && !comment.deleted) {
         container.appendChild(createItemElement(comment, true));
       }
     }
   }
 }
 
-function createItemElement(item, isComment = false) {
+function createItemElement(item) {
   const wrapper = document.createElement("div");
   wrapper.className = "new";
 
@@ -123,9 +125,10 @@ function createItemElement(item, isComment = false) {
 
   const scoreEl = document.createElement("div");
   scoreEl.className = "score";
-  scoreEl.textContent = `Score (${item.score})`;
+  scoreEl.textContent = `Score (${item.score==undefined?0:item.score})`;
   subDiv.appendChild(scoreEl);
-
+  // console.log(item);
+  
   const typeEl = document.createElement("div");
   typeEl.className = "type";
   typeEl.textContent = item.url ? item.type : (item.type === "story" ? "ask" : item.type);
@@ -145,12 +148,30 @@ function createItemElement(item, isComment = false) {
   return wrapper;
 }
 
-function debounce(func, delay) {
-  let timeout;
-  return function (...args) {
-    clearTimeout(timeout);
-    timeout = setTimeout(() => func.apply(this, args), delay);
-  };
+// function debounce(func, delay) {
+//   let timeout;
+//   return function (...args) {
+//     clearTimeout(timeout);
+//     timeout = setTimeout(() => func.apply(this, args), delay);
+//   };
+// }
+function debounce(callBack, timer=500, op={leading:false, trailing:true}){
+  let reset=null;
+  return function(...a){
+      let isTrigger=false
+      if (op.leading &&reset== null){
+          callBack.apply(this, a)
+          isTrigger= true
+      }
+      clearTimeout(reset)
+      reset =setTimeout(()=>{
+          if(op.trailing && !isTrigger){
+              callBack.apply(this,a)
+          }
+          reset= null
+      },timer)
+       
+  }
 }
 
 const debouncedJob = debounce(() => {
@@ -158,14 +179,14 @@ const debouncedJob = debounce(() => {
   state.end = 10;
   state.currentEndpoint = "jobstories";
   fetchItems();
-}, 1000);
+} );
 
 const debouncedNewStories = debounce(() => {
   state.start = 0;
   state.end = 10;
   state.currentEndpoint = "newstories";
   fetchItems();
-}, 1000);
+});
 
 const debouncedNext = debounce(() => {
   if (state.end < state.totalItems) {
@@ -173,7 +194,7 @@ const debouncedNext = debounce(() => {
     state.end += 10;
     fetchItems();
   }
-}, 1000);
+});
 
 const debouncedPrev = debounce(() => {
   if (state.start > 0) {
@@ -181,7 +202,7 @@ const debouncedPrev = debounce(() => {
     state.end -= 10;
     fetchItems();
   }
-}, 1000);
+});
 
 const debouncedPoll = debounce(async () => {
   const pollIds = [
