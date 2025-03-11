@@ -1,0 +1,133 @@
+/* Header styling */
+header {
+    display: flex;
+    justify-content: space-between; /* Center the buttons horizontally */
+    gap: 20px; /* Space between buttons */
+    padding: 20px;
+    background-color: #f0f0f0;
+    border-bottom: 2px solid #e0e0e0;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Button styling */
+   button {
+    padding: 10px 20px;
+    font-size: 1em;
+    font-weight: bold;
+    color: #007bff;
+    background-color: #ffffff;
+    border: 1px solid #007bff;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+   button:hover {
+    color: #ffffff;
+    background-color: #0056b3;
+  }
+
+/*******************************************************************************/
+
+
+
+/* Container styling */
+#items-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    /* Space between items */
+    padding: 20px;
+    max-width: 800px;
+    margin: 0 auto;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+
+/* Each item */
+.new {
+    padding: 15px;
+    border: 1px solid #0056b3;
+    border-radius: 8px;
+    background-color: #ffffff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+
+/* Title */
+.title {
+    font-size: 1.5em;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+
+/* Author */
+.author {
+    font-size: 1em;
+    color: #555;
+    margin-bottom: 8px;
+}
+
+
+/* Time */
+.time {
+    font-size: 0.9em;
+    color: #888;
+    margin-bottom: 10px;
+}
+
+/* Score */
+.score {
+    font-size: 1em;
+    font-weight: bold;
+    color: #333;
+    margin-top: 10px;
+}
+.subDiv{
+  display: flex;
+  justify-content: space-between;
+  
+}
+
+/* URL (Link) */
+.url {
+    display: inline-block;
+    font-size: 1em;
+    color: #0066cc;
+    text-decoration: none;
+    margin-bottom: 10px;
+}
+
+
+.url:hover {
+    text-decoration: underline;
+
+}
+.comments{
+
+  color: green !important;
+  border:1px solid green;
+  background-color: white;
+  padding: 10px 20px;
+  font-size: 1em;
+  font-weight: bold;
+
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+.comments:hover{
+  color: white !important;
+  background-color: green;
+}
+
+/* Text (if URL is not available) */
+.text {
+    font-size: 1em;
+    color: #666;
+    margin-bottom: 10px;
+}
