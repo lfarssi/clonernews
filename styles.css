@@ -1,133 +1,133 @@
 /* Header styling */
 header {
-    display: flex;
-    justify-content: space-between; /* Center the buttons horizontally */
-    gap: 20px; /* Space between buttons */
-    padding: 20px;
-    background-color: #f0f0f0;
-    border-bottom: 2px solid #e0e0e0;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  }
-  
-  /* Button styling */
-   button {
-    padding: 10px 20px;
-    font-size: 1em;
-    font-weight: bold;
-    color: #007bff;
-    background-color: #ffffff;
-    border: 1px solid #007bff;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-  }
-  
-   button:hover {
-    color: #ffffff;
-    background-color: #0056b3;
-  }
+  display: flex;
+  justify-content: space-between;
+  gap: 20px; /* Space between buttons */
+  padding: 20px;
+  background-color: #e8f1f5; /* Light blue-gray */
+  border-bottom: 2px solid #cdd5d9; /* Subtle gray */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Button styling */
+button {
+  padding: 8px 16px;
+  font-size: 0.9em; /* Slightly smaller text */
+  font-style: italic; /* Italicized text */
+  font-weight: bold;
+  color: #1a73e8; /* Blue text */
+  background-color: #ffffff;
+  border: 1px solid #1a73e8;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  color: #ffffff;
+  background-color: #135ba1; /* Darker blue */
+}
 
 /*******************************************************************************/
 
-
-
 /* Container styling */
 #items-container {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    /* Space between items */
-    padding: 20px;
-    max-width: 800px;
-    margin: 0 auto;
-    background-color: #f9f9f9;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  gap: 20px; /* Space between items */
+  padding: 20px;
+  max-width: 800px;
+  margin: 0 auto;
+  background-color: #f3f7f9; /* Subtle blue-gray background */
+  border-radius: 10px; /* Slightly rounded corners */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
-
 
 /* Each item */
 .new {
-    padding: 15px;
-    border: 1px solid #0056b3;
-    border-radius: 8px;
-    background-color: #ffffff;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  padding: 15px;
+  border: 1px solid #135ba1; /* Dark blue border */
+  border-radius: 10px;
+  background-color: #ffffff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
 }
-
 
 /* Title */
 .title {
-    font-size: 1.5em;
-    font-weight: bold;
-    color: #333;
-    margin-bottom: 10px;
+  font-size: 1.3em; /* Slightly smaller */
+  font-style: italic;
+  font-weight: bold;
+  color: #2b3d52; /* Dark slate blue */
+  margin-bottom: 8px;
 }
-
 
 /* Author */
 .author {
-    font-size: 1em;
-    color: #555;
-    margin-bottom: 8px;
+  font-size: 0.9em; /* Smaller text */
+  font-style: italic;
+  color: #54687a; /* Muted blue-gray */
+  margin-bottom: 6px;
 }
-
 
 /* Time */
 .time {
-    font-size: 0.9em;
-    color: #888;
-    margin-bottom: 10px;
+  font-size: 0.8em; /* Smaller text */
+  font-style: italic;
+  color: #788a99; /* Soft gray-blue */
+  margin-bottom: 8px;
 }
 
 /* Score */
 .score {
-    font-size: 1em;
-    font-weight: bold;
-    color: #333;
-    margin-top: 10px;
+  font-size: 0.9em; /* Smaller text */
+  font-style: italic;
+  font-weight: bold;
+  color: #2b3d52; /* Dark slate blue */
+  margin-top: 8px;
 }
-.subDiv{
+
+.subDiv {
   display: flex;
   justify-content: space-between;
-  
 }
 
 /* URL (Link) */
 .url {
-    display: inline-block;
-    font-size: 1em;
-    color: #0066cc;
-    text-decoration: none;
-    margin-bottom: 10px;
+  display: inline-block;
+  font-size: 0.9em; /* Smaller text */
+  font-style: italic;
+  color: #1a73e8; /* Blue text */
+  text-decoration: none;
+  margin-bottom: 8px;
 }
-
 
 .url:hover {
-    text-decoration: underline;
-
+  text-decoration: underline;
 }
-.comments{
 
-  color: green !important;
-  border:1px solid green;
-  background-color: white;
-  padding: 10px 20px;
-  font-size: 1em;
+/* Comments Button */
+.comments {
+  color: #15803d !important; /* Dark green */
+  border: 1px solid #15803d;
+  background-color: #ffffff;
+  padding: 8px 16px;
+  font-size: 0.9em; /* Smaller text */
+  font-style: italic;
   font-weight: bold;
-
-  border-radius: 5px;
+  border-radius: 6px;
   cursor: pointer;
   transition: background-color 0.3s ease;
 }
-.comments:hover{
-  color: white !important;
-  background-color: green;
+
+.comments:hover {
+  color: #ffffff !important;
+  background-color: #15803d; /* Dark green */
 }
 
 /* Text (if URL is not available) */
 .text {
-    font-size: 1em;
-    color: #666;
-    margin-bottom: 10px;
+  font-size: 0.9em; /* Smaller text */
+  font-style: italic;
+  color: #666; /* Neutral gray */
+  margin-bottom: 8px;
 }
