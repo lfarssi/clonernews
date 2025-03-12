@@ -1,5 +1,5 @@
-const API_BASE = "https://hacker-news.firebaseio.com/v0/";
-const API_SUFFIX = ".json?print=pretty";
+const api_url = "https://hacker-news.firebaseio.com/v0/";
+const printPretty = ".json?print=pretty";
 
 const state = {
   start: 0,
@@ -30,7 +30,7 @@ function updateNotification() {
 }
 
 async function checkForUpdates() {
-  const newMax = await fetchJSON(`${API_BASE}maxitem${API_SUFFIX}`);
+  const newMax = await fetchJSON(`${api_url}maxitem${printPretty}`);
   // console.log(newMax);
   
   if (state.maxItem !== 0 && newMax !== state.maxItem) {
@@ -45,7 +45,7 @@ async function fetchItems() {
   state.updatesCount = 0;
   updateNotification();
 
-  const url = `${API_BASE}${state.currentEndpoint}${API_SUFFIX}`;
+  const url = `${api_url}${state.currentEndpoint}${printPretty}`;
   const ids = await fetchJSON(url);
   if (!ids) return;
 
@@ -55,7 +55,7 @@ async function fetchItems() {
 
   const pageIds = ids.slice(state.start, state.end);
   for (const id of pageIds) {
-    const item = await fetchJSON(`${API_BASE}item/${id}${API_SUFFIX}`);
+    const item = await fetchJSON(`${api_url}item/${id}${printPretty}`);
     console.log(item);
     console.log(createItemElement(item));
     
@@ -66,7 +66,7 @@ async function fetchItems() {
 }
 
 async function fetchComments(itemId) {
-  const item = await fetchJSON(`${API_BASE}item/${itemId}${API_SUFFIX}`);
+  const item = await fetchJSON(`${api_url}item/${itemId}${printPretty}`);
   if (!item) return;
 
   const container = document.getElementById("items-container");
@@ -75,7 +75,7 @@ async function fetchComments(itemId) {
 
   if (item.kids && item.kids.length > 0 ) {
     for (const commentId of item.kids) {
-      const comment = await fetchJSON(`${API_BASE}item/${commentId}${API_SUFFIX}`);
+      const comment = await fetchJSON(`${api_url}item/${commentId}${printPretty}`);
       console.log(comment);
       
       if (comment && !comment.dead  && !comment.deleted) {
@@ -214,7 +214,7 @@ const debouncedPoll = debounce(async () => {
   const container = document.getElementById("items-container");
   container.innerHTML = "";
   for (const id of pollIds) {
-    const item = await fetchJSON(`${API_BASE}item/${id}${API_SUFFIX}`);
+    const item = await fetchJSON(`${api_url}item/${id}${printPretty}`);
     if (item) {
       const pollEl = document.createElement("div");
       pollEl.className = "new";
@@ -230,7 +230,7 @@ const debouncedPoll = debounce(async () => {
       if (item.parts) {
         const partsEl = document.createElement("div");
         for (const partId of item.parts) {
-          const part = await fetchJSON(`${API_BASE}item/${partId}${API_SUFFIX}`);
+          const part = await fetchJSON(`${api_url}item/${partId}${printPretty}`);
           if (part) {
             const partEl = document.createElement("div");
             partEl.textContent = `* ${part.text}`;
